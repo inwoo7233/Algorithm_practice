@@ -44,7 +44,6 @@ class BinarySearchTree:
             self.root = new_node
             return
 
-        # 코드를 쓰세요
         temp = self.root  # 저장하려는 위치를 찾기 위해 사용할 변수. root 노드로 초기화한다
 
         # 원하는 위치를 찾아간다

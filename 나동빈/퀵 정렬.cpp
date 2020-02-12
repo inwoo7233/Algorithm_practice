@@ -8,44 +8,36 @@ void show() {
    for(i = 0; i < number; i++) {
       printf("%d ", data[i]);
    }
-   printf("\n");
 }
 
 void quickSort(int* data, int start, int end) {
-   int small = start;
-   int big = start + 1;
-   int find = start + 1;
-   int temp;
+   if (start >= end) { // 원소가 1개인 경우 그대로 두기 
+      return;
+   }
    
-	if (start >= end) {
-		return;
-	}   
-	
-	if (data[small] > data[big]) {
-		temp = data[small];
-		data[small] = data[big];
-		data[big] = data[small];
-	}
-	
-   while (find < end) {
-		if (data[end] > data[find]) {
-			temp = data[find];
-	   		data[find] = data[big];
-	   		data[big] = temp;
-	   		small++;
-	   		big++;
-	   	}  	
-	   	find++;
-    }
-	
-	temp = data[big];
-   	data[big] = data[end];
-   	data[end] = temp;
-   	
-   	show();
-   	
-   	quickSort(data, start, small);
-   	quickSort(data, big, end);
+   int key = start; // 키는 첫 번째 원소
+   int i = start + 1, j = end, temp;
+   
+   while(i <= j) { // 엇갈릴 때까지 반복
+      while(i <= end && data[i] <= data[key]) { // 키 값보다 큰 값을 만날 때까지 
+         i++;
+      }
+      while(j > start && data[j] >= data[key]) { // 키 값보다 작은 값을 만날 때까지 
+         j--;
+      }
+      if(i > j) { // 현재 엇갈린 상태면 키 값과 교체 
+         temp = data[j];
+         data[j] = data[key];
+         data[key] = temp;
+      } else { // 엇갈리지 않았다면 i와 j를 교체 
+         temp = data[i];
+         data[i] = data[j];
+         data[j] = temp;
+      }
+   } 
+   
+   quickSort(data, start, j - 1);
+   quickSort(data, j + 1, end); 
 }
 
 int main(void) {
