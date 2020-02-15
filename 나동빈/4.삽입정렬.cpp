@@ -1,5 +1,7 @@
 # include <stdio.h>
 
+// 각 숫자를 적절한 위치에 삽입하는 방법 
+// 하나씩 하나씩 위치를 정해준다고 생각하면 편하다. 
 int main(void) {
 	int i, j, temp;
 	int array[10] = {1,10,5,8,7,6,4,3,2,9};
