@@ -10,6 +10,7 @@
 # 32 : strip() -> 조이기
 coverLetter = input("입력: ")
 words = coverLetter.strip().split()
+print(words)
 print(f"출력: {len(words)}")
 
 # 33 : range(start,stop) or range(start,stop,step)

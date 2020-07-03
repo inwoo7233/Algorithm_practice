@@ -13,6 +13,7 @@ class Wizard:
     def attack(self):
         print("파이어볼")
 x = Wizard(health = 545, mana = 210, armor = 10)
+y = Wizard(666,666,666)
 print(x.health, x.mana, x.armor)
 x.attack()
 

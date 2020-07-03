@@ -45,10 +45,24 @@ for test_case in range(1, T + 1):
     str2 = input()
 
     result = 0
-    for i in range(len(str2) - len(str1) + 1):
-        if str2[i:i + len(str1)] == str1:
+    j = 0
+    for i in range(0, len(str2)):
+        if (result == len(str1)):
+            break
+        if (str2[i] == str1[j]):
+            result += 1
+            j = (j + 1) % len(str1)
+        elif (str2[i] == str1[0]):
             result = 1
+            j = 1
+        else:
+            result = 0
+            j = 0
 
+    if (result == len(str1)):
+        result = 1
+    else:
+        result = 0
     print('#%d %s' % (test_case, result))
     # 임시 코드입니다.
 

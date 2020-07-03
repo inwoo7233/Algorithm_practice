@@ -37,6 +37,7 @@ print(planets[planet])
 name = input("학생들의 이름을 입력해주세요: ").split()
 score = map(int, input("학생들의 점수를 입력해주세요: ").split())
 result = dict(zip(name,score))
+print(zip(name,score))
 print(result)
 
 # 28
